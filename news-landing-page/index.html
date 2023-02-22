@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+
+        <title>Frontend Mentor | News homepage</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Outfit:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+        <style>
+            * {
+                font-family: "Inter", sans-serif;
+                --soft-orange: hsl(35, 77%, 62%);
+                --soft-red: hsl(5, 85%, 63%);
+                --off-white: hsl(36, 100%, 99%);
+                --grayish-blue: hsl(233, 8%, 79%);
+                --dark-grayish-blue: hsl(236, 13%, 42%);
+                --very-dark-blue: hsl(240, 100%, 5%);
+            }
+            .attribution {
+                font-size: 11px;
+                text-align: center;
+            }
+            .attribution a {
+                color: hsl(228, 45%, 44%);
+            }
+        </style>
+    </head>
+    <body class="closed hidden">
+        <div id="mobile-menu" class="mobile-menu">
+            <div class="darker"></div>
+            <div class="inner">
+                <img src="./assets/images/icon-menu-close.svg" id="close" />
+                <ul>
+                    <li>Home</li>
+                    <li>New</li>
+                    <li>Popular</li>
+                    <li>Trending</li>
+                    <li>Categories</li>
+                </ul>
+            </div>
+        </div>
+        <header>
+            <img src="./assets/images/logo.svg" />
+            <img src="./assets/images/icon-menu.svg" class="burger-menu" />
+
+            <ul>
+                <li>Home</li>
+                <li>New</li>
+                <li>Popular</li>
+                <li>Trending</li>
+                <li>Categories</li>
+            </ul>
+        </header>
+        <div class="container">
+            <div class="big-card">
+                <img src="./assets/images/image-web-3-mobile.jpg" />
+                <div class="big-line">
+                    <h1>The Bright Future of Web 3.0?</h1>
+                    <div>
+                        <p>
+                            We dive into the next evolution of the web that claims to put the power of the platforms
+                            back into the hands of the people. But is it really fulfilling its promise?
+                        </p>
+                        <button>READ MORE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="news">
+                <h2>New</h2>
+                <ul>
+                    <li>
+                        <h2>Hydrogen VS Electric Cars</h2>
+                        <summary>Will hydrogen-fueled cars ever catch up to EVs?</summary>
+                    </li>
+                    <li>
+                        <h2>The Downsides of AI Artistry</h2>
+                        <summary>What are the possible adverse effects of on-demand AI image generation?</summary>
+                    </li>
+
+                    <li>
+                        <h2>Is VC Funding Drying Up?</h2>
+                        <summary>
+                            Private funding by VC firms is down 50% YOY. We take a look at what that means.
+                        </summary>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <img src="./assets/images/image-retro-pcs.jpg" />
+                <div class="flex">
+                    <h1>01</h1>
+                    <h2>Reviving Retro PCs</h2>
+                    <summary>What happens when old PCs are given modern upgrades?</summary>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./assets/images/image-top-laptops.jpg" />
+                <div class="flex">
+                    <h1>02</h1>
+                    <h2>Top 10 Laptops of 2022</h2>
+                    <summary>Our best picks for various needs and budgets.</summary>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./assets/images/image-gaming-growth.jpg" />
+                <div class="flex">
+                    <h1>03</h1>
+                    <h2>The Growth of Gaming</h2>
+                    <summary>How the pandemic has sparked fresh opportunities.</summary>
+                </div>
+            </div>
+        </div>
+
+        <div class="attribution">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+            Coded by <a href="#">Your Name Here</a>.
+        </div>
+    </body>
+</html>
+
+<style>
+    body {
+        background-color: var(--off-white);
+        margin: 16px;
+        font-size: 15px;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        height: 28px;
+        margin-top: 28px;
+        margin-bottom: 32px;
+    }
+
+    .burger-menu {
+        margin-top: 7px;
+        margin-bottom: 7px;
+    }
+
+    header ul {
+        display: none;
+    }
+
+    .big-card img {
+        width: 100%;
+    }
+
+    .big-card h1 {
+        font-weight: 800;
+        color: var(--very-dark-blue);
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        line-height: 2.5rem;
+        margin-top: 17px;
+    }
+    .big-card p {
+        color: var(--dark-grayish-blue);
+        line-height: 1.7rem;
+    }
+
+    .big-card button {
+        color: var(--off-white);
+        background: var(--soft-red);
+
+        margin-top: 10px;
+
+        font-size: 15px;
+        border: 0;
+        height: 46px;
+        width: 182px;
+        letter-spacing: 2px;
+        font-weight: 700;
+    }
+
+    .news {
+        background-color: var(--very-dark-blue);
+        margin-top: 64px;
+        padding: 22px;
+    }
+
+    .news h2 {
+        color: var(--soft-orange);
+        margin-top: 2px;
+        font-size: 2rem;
+    }
+
+    .news ul li h2 {
+        color: var(--off-white);
+        font-size: 1.2rem;
+        font-weight: 800;
+        padding-top: 2px;
+    }
+
+    .news ul li summary {
+        color: var(--grayish-blue);
+        padding-bottom: 35px;
+        margin-bottom: 28px;
+        border-bottom: solid 1px var(--dark-grayish-blue);
+    }
+
+    .news ul li:last-child summary {
+        border-bottom: 0;
+        padding-bottom: 0px;
+
+        margin-bottom: 10px;
+    }
+
+    .news ul {
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .cards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 64px;
+    }
+
+    .cards .card img {
+        width: 100px;
+    }
+    .cards .card {
+        display: flex;
+        margin-bottom: 34px;
+    }
+
+    .flex {
+        margin-left: 25px;
+    }
+
+    .flex h1 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+
+        letter-spacing: 1px;
+        color: var(--grayish-blue);
+    }
+    .flex h2 {
+        margin-top: 10px;
+        font-size: 1.2rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+
+    .flex summary {
+        color: var(--dark-grayish-blue);
+        max-width: 220px;
+        line-height: 1.5rem;
+    }
+
+    /* .closed {
+        display: none;
+    } */
+
+    .mobile-menu {
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+    .mobile-menu .darker {
+        background-color: rgba(0, 0, 0, 0.307);
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .mobile-menu .inner {
+        background-color: var(--off-white);
+        width: 70%;
+        z-index: 1;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .mobile-menu .inner img {
+        float: right;
+        margin-top: 25px;
+        margin-right: 20px;
+    }
+
+    .mobile-menu .inner ul {
+        border: 0;
+        padding: 0;
+        list-style: none;
+        margin: 0;
+        margin-top: 150px;
+        margin-left: 25px;
+    }
+    .mobile-menu .inner ul {
+        list-style: none;
+    }
+
+    .mobile-menu .inner ul li {
+        margin-bottom: 25px;
+        font-size: 1.2rem;
+    }
+
+    .closed .mobile-menu .darker {
+        display: none;
+    }
+
+    .closed .mobile-menu .inner {
+        animation: disappear 250ms forwards;
+    }
+
+    .opened .mobile-menu .inner {
+        animation: appear 250ms;
+    }
+
+    .hidden .mobile-menu {
+        display: none;
+    }
+
+    @-webkit-keyframes disappear {
+        from {
+            transform: translateX(0%);
+        }
+        to {
+            transform: translateX(100%);
+        }
+    }
+
+    @-webkit-keyframes appear {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(0%);
+        }
+    }
+
+    .card:hover {
+        cursor: pointer;
+        transform: all 0.5s ease-in-out;
+    }
+
+    .card:hover img {
+        cursor: pointer;
+        transform: all 0.5s ease-in-out;
+    }
+
+    .card:hover h1 {
+        color: var(--soft-orange);
+    }
+
+    .big-card img {
+        content: url("./assets/images/image-web-3-desktop.jpg");
+    }
+
+    @media screen and (max-width: 600px) {
+        .big-card img {
+            content: url("./assets/images/image-web-3-mobile.jpg");
+        }
+    }
+
+    @media screen and (min-width: 700px) {
+        .big-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .big-line div {
+            margin-left: 5px;
+        }
+
+        .burger-menu {
+            display: none;
+        }
+
+        header ul {
+            display: flex;
+            width: fit-content;
+            height: 100%;
+            margin: 0;
+            list-style: none;
+        }
+
+        header ul li {
+            margin: 5px;
+            color: var(--dark-grayish-blue);
+            margin-left: 25px;
+            cursor: pointer;
+        }
+
+        header ul li:hover {
+            color: var(--very-dark-blue);
+        }
+    }
+
+    @media screen and (min-width: 1000px) {
+        .container {
+            display: flex;
+        }
+        .news {
+            margin-left: 35px;
+            margin-top: 0px;
+        }
+        .card {
+            margin: 10px;
+        }
+    }
+
+    @media screen and (min-width: 1310px) {
+        body {
+            margin: auto;
+        }
+    }
+        
+
+    body {
+        max-width: 1300px;
+    }
+
+    button:hover {
+        background-color: var(--very-dark-blue);
+    }
+
+    button {
+        transition: all 0.5s ease-in-out;
+    }
+</style>
+<script>
+    let open = false;
+    const burger = document.querySelector(".burger-menu");
+    burger.onclick = () => {
+        document.body.classList.remove("closed");
+        document.body.classList.remove("hidden");
+
+        document.body.classList.add("opened");
+    };
+
+    const close = document.querySelector("#close");
+    close.onclick = () => {
+        document.body.classList.remove("opened");
+        document.body.classList.add("closed");
+        setTimeout(() => {
+            document.body.classList.add("hidden");
+        }, 250);
+    };
+</script>
