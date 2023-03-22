@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Libre+Franklin:wght@300;600;700&display=swap");
+
+* {
+    --blue: hsl(223, 87%, 63%);
+    --pale-blue: hsl(223, 100%, 88%);
+    --light-red: hsl(354, 100%, 66%);
+    --gray: hsl(233, 8%, 62%);
+    --very-dark-blue: hsl(209, 33%, 12%);
+    font-size: 1.25rem;
+    font-family: "Libre Franklin", sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+main {
+    width: 80%;
+    margin: auto;
+}
+
+header {
+    margin: auto;
+    width: fit-content;
+    text-align: center;
+}
+
+header img {
+    padding-top: 3em;
+    width: 3em;
+}
+
+header h1 {
+    font-size: 1.1em;
+    color: var(--gray);
+    font-weight: 300;
+}
+
+header h1 strong {
+    font-size: 1.1em;
+    color: var(--very-dark-blue);
+}
+
+header p {
+    font-size: 0.7em;
+}
+
+form input {
+    width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+    border: var(--blue) solid 1px;
+    padding: 0.8em;
+    border-radius: 20px;
+    padding-left: 2em;
+    font-size: 0.6em;
+}
+
+form input:focus {
+    outline: none;
+}
+
+form input::placeholder {
+    height: fit-content;
+    color: var(--gray);
+}
+
+
+
+form button {
+    padding: 0.8em;
+    border-radius: 20px;
+    font-size: 0.6em;
+    width: 100%;
+    color: white;
+    background-color: var(--blue);
+    border: none;
+}
+
+.illustration {
+    width: 100%;
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.grow {
+    flex-grow: 1;
+}
+
+.attribution a {
+    font-size: small;
+}
+
+footer ul li svg {
+    fill: var(--blue);
+    width: 2em;
+    height: 2em;
+    font-size: 0.6rem;
+
+}
+
+footer ul li {
+    padding: 0.6em;
+    width: 2em;
+    height: 2em;
+    font-size: 0.6rem;
+    border-radius: 50%;
+    border: 1px solid var(--pale-blue);
+    margin: 1em;
+}
+
+ path {
+    width: 1em;
+    fill: var(--blue);
+}
+
+footer ul {
+    padding: 0;
+    justify-content: center;
+    list-style: none;
+    display: flex;
+}
+
+footer ul li:hover {
+    background-color: var(--blue);
+    cursor: pointer;
+}
+
+footer ul li:hover path {
+    fill: white;
+}
+
+* {
+    transition: all 0.5s;
+}
+
+.copyright {
+    font-size: 0.6em;
+    text-align: center;
+    color: var(--gray);
+}
+
+form {
+    margin-top: 1.1em;
+}
+
+form button {
+    margin-top: 1em;
+}
+
+main > img {
+    margin-top: 2.5em;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.email-error {
+    color: var(--light-red);
+    font-size: 0.45em;
+    text-align: center;
+    display: none;
+}
+
+.form-error .email-error {
+    display: block;
+}
+
+.form-error input {
+    border-color: var(--light-red);
+}
+
+main {
+    max-width: 25em;
+}
+
+@media (min-width: 768px) {
+    header img {
+        padding-top: 2.2em;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+    header h1 span {
+        font-size: 1.5em;
+    }
+
+    form {
+        display: flex;
+        position: relative;
+
+    }
+    form input {
+        width: 70%;
+        min-width: 70%;
+        margin-right: 1em;
+    }
+    form button {
+        margin: 0;
+    }
+    .form-error .email-error {
+        position: absolute;
+        display: block;
+        bottom: -3em;
+        left: 2em;
+    }
+}
+
+button {
+    box-shadow: rgba(79, 125, 243, 0.76) 0px 8px 24px;
+}
