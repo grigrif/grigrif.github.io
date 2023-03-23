@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap");
+/*### Primary
+
+- Light red: hsl(0, 100%, 67%)
+- Orangey yellow: hsl(39, 100%, 56%)
+- Green teal: hsl(166, 100%, 37%)
+- Cobalt blue: hsl(234, 85%, 45%)
+
+## Gradients
+
+- Light slate blue (background): hsl(252, 100%, 67%)
+- Light royal blue (background): hsl(241, 81%, 54%)
+
+- Violet blue (circle): hsla(256, 72%, 46%, 1)
+- Persian blue (circle): hsla(241, 72%, 46%, 0)
+
+
+
+### Neutral
+
+- White: hsl(0, 0%, 100%)
+- Pale blue: hsl(221, 100%, 96%)
+- Light lavender: hsl(241, 100%, 89%)
+- Dark gray blue: hsl(224, 30%, 27%)
+*/
+* {
+    font-family: "Hanken Grotesk", sans-serif;
+    --light-red: hsla(0, 100%, 67%, 0.1);
+    --orangey-yellow: hsla(39, 100%, 56%, 0.1);
+    --green-teal: hsla(166, 100%, 37%, 0.1);
+    --cobalt-blue: hsla(234, 85%, 45%, 0.1);
+    --white: hsl(0, 0%, 100%);
+    --pale-blue: hsl(221, 100%, 96%);
+    --light-lavender: hsl(241, 100%, 89%);
+    --dark-gray-blue: hsl(224, 30%, 27%);
+    --light-slate-blue: hsl(252, 100%, 67%);
+    --light-royal-blue: hsl(241, 81%, 54%);
+    --violet-blue: hsla(256, 72%, 46%, 1);
+    --persian-blue: hsla(241, 72%, 46%, 0);
+    font-size: 1.5rem;
+}
+
+main header {
+    background: linear-gradient(var(--light-slate-blue), var(--light-royal-blue));
+    color: #b2a0ff;
+    text-align: center;
+    padding: 2em;
+    padding-top: 0.3em;
+    padding-bottom: 0.5em;
+
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+
+main header p {
+    font-size: medium;
+}
+
+.circle {
+    background: linear-gradient(var(--violet-blue), var(--persian-blue));
+    border-radius: 50%;
+    width: 4em;
+    position: relative;
+    margin: auto;
+    aspect-ratio: 1/1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.circle h6 {
+    font-size: 0.5em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h5 {
+    margin: 0;
+    color: var(--white);
+    font-weight: 500;
+    font-size: 0.8em;
+    padding-top: 0.5em;
+}
+
+.circle h1 {
+    font-weight: 800;
+    font-size: 1.5em;
+    margin: 0;
+    color: var(--white);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    padding: 1em;
+}
+
+section h3 {
+    font-weight: 700;
+    font-size: 0.7em;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    padding: 0.5em;
+    font-size: 0.9em;
+    border-radius: 0.3em;
+    margin-bottom: 0.5em;
+    background-color: red;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info p {
+    font-weight: 500;
+    font-size: 0.5em;
+    margin: 0;
+    padding-left: 0.5em;
+}
+
+.score,
+.score span {
+    font-weight: 500;
+    font-size: 0.4em;
+    margin: 0;
+    color: var(--dark-gray-blue);
+}
+
+.score {
+    letter-spacing: 0.001em;
+}
+
+.score span {
+    color: var(--dark-gray-blue);
+    font-weight: 800;
+    font-size: 1.5em;
+}
+
+button {
+    background: linear-gradient(var(--dark-gray-blue), var(--dark-gray-blue));
+    width: 100%;
+    border: none;
+    border-radius: 100px;
+    padding: 1em;
+    color: var(--pale-blue);
+    font-weight: 500;
+    font-size: 0.5em;
+}
+
+.info {
+    display: flex;
+}
+
+ul li:nth-child(1) {
+    background-color: var(--light-red);
+    color: hsla(0, 100%, 67%);
+}
+ul li:nth-child(2) {
+    background-color: var(--orangey-yellow);
+    color: hsla(39, 100%, 56%);
+}
+ul li:nth-child(3) {
+    background-color: var(--green-teal);
+    color: hsla(166, 100%, 37%);
+}
+ul li:nth-child(4) {
+    background-color: var(--cobalt-blue);
+    color: hsla(256, 72%, 46%);
+}
+
+footer a {
+    font-size: small;
+}
+button {
+    transition: all 5s ease-in-out;
+}
+button:hover {
+    cursor: pointer;
+    background: linear-gradient(var(--light-slate-blue), var(--light-royal-blue));
+}
+
+@media (min-width: 768px) {
+    main  {
+        flex-direction: row;
+        display: flex;
+        max-width: 30rem;
+        width: 90%;
+        margin: auto;
+        justify-content: center
+
+
+
+    }
+    main header {
+        border-radius: 1em;
+
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        
+    }
+
+    header p {
+        max-width: 20ch;
+    }
+
+    section {
+        background-color: var(--white);
+        width: 50%;
+        position: relative;
+        border-top-right-radius: 1em;
+        border-bottom-right-radius: 1em;
+    }
+
+    header {
+        font-size: 2rem;
+        z-index: 2;
+        position: relative;
+    }
+
+    .circle {
+        width: 5em;
+        height: 5em;
+    }
+
+    body {
+        background-color: var(--pale-blue);
+    }
+
+    section::before {
+        position: absolute;
+        z-index: 1;
+        background-color: red;
+        content: "";
+        width: 1em;
+        height: 100%;
+        top: 0;
+        background: var(--white);
+        left: -1em;
+    }
+}
