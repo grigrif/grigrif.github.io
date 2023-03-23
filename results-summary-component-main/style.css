@@ -195,14 +195,14 @@ button:hover {
         max-width: 30rem;
         width: 90%;
         margin: auto;
-        justify-content: center
-
-
-
+        justify-content: center;
+        background: transparent;
+         box-shadow: var(    --light-lavender) 0px 8px 24px;
+         border-radius: 1.5rem;
+         overflow: hidden;
     }
     main header {
-        border-radius: 1em;
-
+        border-radius: 1.5rem;
     }
 
     body {
@@ -220,8 +220,6 @@ button:hover {
         background-color: var(--white);
         width: 50%;
         position: relative;
-        border-top-right-radius: 1em;
-        border-bottom-right-radius: 1em;
     }
 
     header {
@@ -242,7 +240,6 @@ button:hover {
     section::before {
         position: absolute;
         z-index: 1;
-        background-color: red;
         content: "";
         width: 1em;
         height: 100%;
