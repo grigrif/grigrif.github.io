@@ -76,7 +76,7 @@ h1 {
 
 @media screen and (min-width: 700px) {
     .sep img {
-        content: url(./images/pattern-divider-desktop.svg);
+        content: url(./images/pattern-divider-desktop.svg) !important;
     }
     
 }
