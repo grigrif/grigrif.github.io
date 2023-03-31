@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+
+        <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+        <title>Frontend Mentor | Advice generator app</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="./style.css" />
+        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+        <style>
+            .attribution {
+                font-size: 11px;
+                text-align: center;
+            }
+            .attribution a {
+                color: hsl(228, 45%, 44%);
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h2>Advice #219</h2>
+            <h1>"Try buying a coffee for the creator of a free public API, now and then"</h1>
+            <div class="sep">
+                <img src="./images/pattern-divider-mobile.svg" alt="divider" />
+            </div>
+            <div class="button" onclick="getRandomQuote()">
+                <img src="./images/icon-dice.svg" alt="divider" />
+            </div>
+        </main>
+
+
+        <div class="attribution">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+            Coded by <a href="#">grigrif</a>.
+        </div>
+    </body>
+    <script>
+      function getRandomQuote() {
+        fetch("https://api.adviceslip.com/advice", {cache: "no-cache"}).then(response => response.json()).then(data => {
+          const quote = data.slip.advice;
+          const id = data.slip.id;
+
+          let h2 = document.querySelector("h2");
+          h2.innerHTML = "Advice #" + id;
+          let h1 = document.querySelector("h1");
+          h1.innerHTML = "\"" + quote + "\"";
+        })
+      }
+    </script>
+</html>
