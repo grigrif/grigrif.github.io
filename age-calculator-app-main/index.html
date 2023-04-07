@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap"
+            rel="stylesheet"
+        />
+
+        <title>Frontend Mentor | Age calculator app</title>
+        <link rel="stylesheet" href="./style.css" />
+        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+        <style>
+            .attribution {
+                font-size: 11px;
+                text-align: center;
+            }
+            .attribution a {
+                color: hsl(228, 45%, 44%);
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <form>
+                <li>
+                    <label for="day">Day</label>
+                    <input type="text" name="day" onchange="update()" />
+                </li>
+                <li>
+                    <label for="month">Month</label>
+                    <input type="text" name="month" onchange="update()" />
+                </li>
+                <li>
+                    <label for="year">Year</label>
+                    <input type="text" name="year" onchange="update()" />
+                </li>
+            </form>
+            <div class="sep">
+                <div class="spacer"></div>
+                <img src="./assets/images/icon-arrow.svg" alt="separator" />
+                <div class="spacer spacer2"></div>
+            </div>
+            <div class="result">
+                <h1><span>--</span> years</h1>
+                <h1><span>--</span> months</h1>
+                <h1><span>--</span> days</h1>
+            </div>
+        </main>
+    </body>
+    <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by
+        <a href="#">Your Name Here</a>.
+    </div>
+    <script>
+        let day = undefined;
+        let month = undefined;
+        let year = undefined;
+
+        let curr = {
+            years: 0,
+            months: 0,
+            days: 0,
+        };
+
+        function reset() {
+            document.querySelector(".result h1:nth-child(1) span").innerHTML = "--";
+            document.querySelector(".result h1:nth-child(2) span").innerHTML = "--";
+            document.querySelector(".result h1:nth-child(3) span").innerHTML = "--";
+            curr = {
+                years: 0,
+                months: 0,
+                days: 0,
+            };
+        }
+
+        function update() {
+            day = Number(document.querySelector("input[name='day']").value);
+            month = Number(document.querySelector("input[name='month']").value) - 1;
+            year = Number(document.querySelector("input[name='year']").value);
+            if (
+                document.querySelector("input[name='day']").value.length == 0 ||
+                document.querySelector("input[name='month']").value.length == 0 ||
+                document.querySelector("input[name='year']").value.length == 0
+            ) {
+                return;
+            }
+            if (day > 31 || day < 1) {
+                document.querySelector("form li:nth-child(1)").classList.add("wrong");
+                reset();
+
+                return;
+            } else {
+                document.querySelector("form li:nth-child(1)").classList.remove("wrong");
+            }
+            if (month > 11 || month < 0) {
+                document.querySelector("form li:nth-child(2)").classList.add("wrong");
+                reset();
+
+                return;
+            } else {
+                document.querySelector("form li:nth-child(2)").classList.remove("wrong");
+            }
+            if (year > new Date().getFullYear() || year < 1900) {
+                document.querySelector("form li:nth-child(3)").classList.add("wrong");
+                reset();
+                return;
+            } else {
+                document.querySelector("form li:nth-child(3)").classList.remove("wrong");
+            }
+            calculateAge();
+        }
+
+        function dateDiff(startDate, endDate) {
+            // Calculate the difference in milliseconds
+            const diffInMs = endDate.getTime() - startDate.getTime();
+
+            // Convert milliseconds to days, months, and years
+            const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+            const years = Math.floor(diffInDays / 365);
+            const months = Math.floor((diffInDays % 365) / 30);
+            const days = diffInDays % 30;
+
+            // Return the result as an object
+            return { years, months, days };
+        }
+
+        function set(years, months, days) {
+            document.querySelector(".result h1:nth-child(1) span").innerHTML = years;
+            document.querySelector(".result h1:nth-child(2) span").innerHTML = months;
+            document.querySelector(".result h1:nth-child(3) span").innerHTML = days;
+        }
+
+        function update2(age) {
+            if (age.years > curr.years) {
+                curr.years += 1;
+            } else if (age.years < curr.years) {
+                curr.years -= 1;
+            }
+            if (age.months > curr.months) {
+                curr.months += 1;
+            } else if (age.months < curr.months) {
+                curr.months -= 1;
+            }
+            if (age.days > curr.days) {
+                curr.days += 1;
+            } else if (age.days < curr.days) {
+                curr.days -= 1;
+            }
+            if (curr.years == age.years && curr.months == age.months && curr.days == age.days) {
+                return;
+            }
+            set(curr.years, curr.months, curr.days);
+            setTimeout(() => {
+                update2(age);
+            }, 20);
+        }
+
+        function calculateAge() {
+            let date = new Date();
+            let diff = new Date(year, month, day);
+            let age = dateDiff(diff, date);
+
+            update2(age);
+        }
+    </script>
+</html>

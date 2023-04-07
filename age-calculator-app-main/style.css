@@ -1,0 +1,179 @@
+/* css reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* - Purple: hsl(259, 100%, 65%)
+- Light red: hsl(0, 100%, 67%)
+
+### Neutral
+
+- White: hsl(0, 0%, 100%)
+- Off white: hsl(0, 0%, 94%)
+- Light grey: hsl(0, 0%, 86%)
+- Smokey grey: hsl(0, 1%, 44%)
+- Off black: hsl(0, 0%, 8%) */
+
+body {
+    font-family: "Poppins", sans-serif;
+    --purple: hsl(259, 100%, 65%);
+    --light-red: hsl(0, 100%, 67%);
+    --white: hsl(0, 0%, 100%);
+    --off-white: hsl(0, 0%, 94%);
+    --light-grey: hsl(0, 0%, 86%);
+    --smokey-grey: hsl(0, 1%, 44%);
+    --off-black: hsl(0, 0%, 8%);
+    min-height: 100vh;
+    background: var(--light-grey);
+    font-size: 2rem;
+}
+
+main {
+    background-color: var(--off-white);
+    width: 90%;
+    padding: 1rem;
+    margin: auto;
+    border-radius: 0.75em;
+    border-bottom-right-radius: 3em;
+}
+
+form {
+    padding: 1rem;
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+form li {
+    list-style: none;
+    font-size: 0.4em;
+    letter-spacing: 0.1em;
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    color: var(--smokey-grey);
+    margin-left: 1rem;
+}
+
+form li:nth-child(1) {
+    margin-left: 0;
+}
+
+form li label {
+    margin-bottom: 0.5rem;
+}
+
+form li input {
+    border: 1px solid var(--light-grey);
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 0.45rem;
+    background-color: transparent;
+    color: var(--off-black);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+form li input:focus {
+    outline: none;
+    border: 1px solid var(--purple);
+}
+
+img {
+    background-color: var(--purple);
+    padding: 1rem;
+    border-radius: 50%;
+    width: 1.85em;
+    margin: auto;
+}
+
+img::before {
+    content: "azddddd";
+    width: 1000px;
+    height: 50px;
+    top: 0;
+    right: 0;
+    position: absolute;
+    background: red;
+}
+
+.sep {
+    width: calc(100% - 2rem);
+    display: flex;
+    align-items: center;
+    margin: auto;
+    box-sizing: content-box;
+    margin-top: 0.75rem;
+}
+
+.spacer {
+    flex-grow: 1;
+    width: 95%;
+    height: 2px;
+    background-color: var(--light-grey);
+}
+
+div h1 {
+    font-size: 1.5em;
+    margin-left: 1rem;
+}
+
+div span {
+    color: var(--purple);
+}
+
+.result {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+li.wrong {
+    color: var(--light-red);
+    position: relative;
+}
+
+li.wrong input {
+    border: 1px solid var(--light-red);
+}
+
+form:nth-child(1) li.wrong::after {
+    content: "must be a valid day";
+    position: absolute;
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0;
+    bottom: -1.5rem;
+}
+
+body {
+    padding-top: 5rem;
+}
+
+.attribution {
+    padding-top: 2rem;
+}
+
+form {
+    max-width: 30rem;
+}
+
+main {
+    max-width: 50rem;
+}
+
+@media screen and (min-width: 35rem) {
+    .spacer2 {
+        display: none;
+    }
+
+    body {
+        font-size: 2.5rem !important;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        flex-direction: column;
+    }
+}
