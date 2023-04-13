@@ -451,7 +451,8 @@ body .nav-link {
     background: var(--yellow);
 }
 
-@media screen and (min-width: 44rem) {
+
+{
     .nav-link {
         display: flex !important;
         align-items: center!important;
@@ -612,3 +613,9 @@ body .nav-link {
         color: var(--yellow);
         background: var(--very-dark-desaturated-blue);
     }
+
+@media screen and (min-width: 44rem)
+.one p {
+    max-width: 50ch;
+    margin: auto;
+}
