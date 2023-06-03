@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+  <link rel="stylesheet" href="./style.css">
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body >
+
+  <!-- Sign-up form start -->
+  <main class="pop-up">
+    <img src="./assets/images/illustration-sign-up-mobile.svg" alt="sign-up" id="sign-up">
+    <section>
+    <h2>Stay updated!</h1>
+    <p>Join 60,000+ product managers receiving monthly updates on:</p>
+
+    <ul>
+      <li>Product discovery and building what matters</li>
+      <li>Measuring to ensure updates are a success</li>
+      <li>And much more!</li>
+    </ul>
+
+    <div class="form" onsubmit="return false;">
+      <label>Email address</label>
+      <input onkeypress="document.body.classList.remove('error-email')" type="email" placeholder="email@company.com">
+      <button onclick="submit()">Subscribe to monthly newsletter</button>
+    </div>
+  </section>
+  </main>
+  <main class="success">
+    <div class="thank">
+    <img src="./assets/images/icon-success.svg" alt="thank you">
+    <h1>Thanks for subscribing!</h1>
+    <p class="confirmation-text">A confirmation email has been sent to %placeholder%. 
+      Please open it and click the button inside to confirm your subscription.
+    </p>
+  </div>
+    <button>Dismiss message</button>
+  </main>
+  
+
+  
+
+  <!-- Sign-up form end -->
+
+  <!-- Success message start -->
+
+  
+
+
+  <!-- Success message end -->
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</body>
+</html>
+
+<script>
+  function submit(e) {
+    let email = document.querySelector("input").value;
+    // validate email
+    if (email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
+      document.body.classList.add("success-message");
+      let confirmation = document.querySelector(".confirmation-text");
+  confirmation.textContent = confirmation.textContent.replace("%placeholder%", email);
+
+    return false
+  }
+
+  document.body.classList.add('error-email');
+  return false
+}
+
+
+</script>

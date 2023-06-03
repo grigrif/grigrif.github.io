@@ -1,0 +1,242 @@
+* {
+    font-family: "Roboto", sans-serif;
+    color: var(--neutral);
+}
+
+/* reset css  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+main img {
+    width: 100%;
+}
+
+main section {
+    margin: 2em;
+}
+
+main h2 {
+    font-size: 2.4em;
+}
+
+main p {
+    font-size: 1em;
+    line-height: 1.5em;
+    margin-top: 1.2em;
+}
+
+ul {
+    list-style: none;
+    margin-top: 1.5em;
+}
+
+ul li {
+    margin: 0.5em 0;
+    line-height: 1.5em;
+}
+
+li {
+    background-image: url("./assets/images/icon-list.svg");
+    background-repeat: no-repeat;
+    padding-left: 2.2em;
+}
+
+* {
+    --tomato: hsl(4, 100%, 67%);
+    --neutral: hsl(234, 29%, 20%);
+    --charcoal: hsl(235, 18%, 26%);
+    --grey: hsl(231, 7%, 60%);
+    --white: hsl(0, 0%, 100%);
+}
+
+.form {
+    margin-top: 2.4em;
+}
+
+label {
+    display: block;
+    font-size: 0.8em;
+    font-weight: 700;
+    margin-bottom: 0.7em;
+}
+
+input {
+    width: 100%;
+    font-size: 1em;
+    padding: 1em 1.2em;
+    border-radius: 0.5em;
+    border: 1px solid var(--grey);
+}
+
+button {
+    margin-top: 1.4em;
+    width: 100%;
+    font-size: 1em;
+    padding: 1em 1.2em;
+    border-radius: 0.5em;
+    color: var(--white);
+    background: linear-gradient(to right, var(--neutral), var(--neutral));
+    border: none;
+}
+
+.success {
+    display: none;
+}
+
+.success-message .success {
+    display: block;
+}
+.success-message .pop-up {
+    display: none;
+}
+.error-email input {
+    border: 1px solid var(--tomato);
+    color: var(--tomato);
+    background-color: hsla(4, 100%, 67%, 0.2);
+}
+
+.error-email label::after {
+    float: right;
+    content: "Valid email required";
+    color: var(--tomato);
+}
+
+input:focus {
+    outline-color: var(--neutral);
+}
+
+.success {
+    margin: 1.5em;
+}
+
+.success img {
+    width: 4em;
+}
+
+.success h1 {
+    margin-top: 0.9em;
+    font-size: 2.4em;
+    line-height: 1em;
+}
+
+.thank {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    justify-content: center;
+}
+
+.success {
+    height: auto;
+}
+
+.success-message .attribution {
+    display: none;
+}
+
+.success {
+    height: calc(100vh - 8em);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+@media screen and (min-width: 850px) {
+    body {
+        font-size: 1.5em;
+    }
+    main {
+        background: var(--white);
+        padding: 1em;
+        border-radius: 1em;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        max-width: 40em;
+    }
+    body {
+        width: 100vw;
+        background-color: var(--charcoal);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .attribution {
+        padding: 5em;
+    }
+
+    h2 {
+        font-size: 3.5em !important;
+    }
+
+    main #sign-up {
+        content: url("./assets/images/illustration-sign-up-desktop.svg") !important;
+        width: unset;
+    }
+
+    li {
+        background-size: 1.1em;
+        background-position: left;
+    }
+    main section {
+        font-size: 0.75em;
+    }
+
+    .success-message .success {
+        display: block;
+        border-radius: 2em;
+
+        padding: 2em!important;
+        max-width: 20em!important;
+        height: unset!important;
+    }
+
+    .thank p, .success button {
+        font-size: 0.75em!important;
+    }
+
+    .success button {
+        margin: 1.25em 0em;
+        margin-top: 2em;
+    }
+
+    .success img {
+        width: 3em;
+        margin-bottom: -1em;
+    }
+
+    .thank {
+        display: block!important;
+        min-height: unset!important;
+    }
+}
+
+main #sign-up {
+    content: url("./assets/images/illustration-sign-up-mobile.svg");
+}
+
+.attribution, a, a:visited {
+    color: var(--white);
+}
+
+
+button:hover {
+    color: var(--white);
+    box-shadow: 0px 5px 20px 0px tomato;
+    background: linear-gradient(to right, #FE5578, var(--tomato));
+}
+
+button {
+    transition: all 0.3s ease-in-out;
+}
