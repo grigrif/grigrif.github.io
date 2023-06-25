@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+
+        <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet" />
+        <title>Frontend Mentor | Expenses chart component</title>
+        <link rel="stylesheet" href="./style.css" />
+        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+        <style>
+            .attribution {
+                font-size: 11px;
+                text-align: center;
+            }
+            .attribution a {
+                color: hsl(228, 45%, 44%);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <header>
+                <section>
+                    <p>My balance</p>
+                    <h2>$921.48</h2>
+                </section>
+                <section><img src="./images/logo.svg" alt="logo" /></section>
+            </header>
+            <section class="main">
+                <h3>Spending - Last 7 days</h3>
+                <section id="graph"></section>
+                <hr />
+                <footer>
+                    <section class="left">
+                        <p>Total this month</p>
+                        <h1>$478.33</h1>
+                    </section>
+                    <section class="right">
+                        <p><span>+2.4%</span></p>
+                        <p>from last month</p>
+                    </section>
+                </footer>
+            </section>
+        </div>
+    </body>
+</html>
+<script>
+    fetch("./data.json").then((response) => {
+        response.json().then((data) => {
+            data.forEach((element) => {
+                let container = document.createElement("div");
+                container.innerHTML = `
+                <p class="tool-tips">${element.amount}</p>
+                <div class="bar-container">
+                <div class="bar ${element.day}" style="height:${element.amount / 0.5236}%"></div>
+                </div>
+                <p class="day">${element.day}</div>
+              `;
+                document.getElementById("graph").appendChild(container);
+                var styleElem = document.head.appendChild(document.createElement("style"));
+
+                styleElem.innerHTML = `.${element.day}:before {content: "$${element.amount}";}`;
+            });
+        });
+    });
+</script>
