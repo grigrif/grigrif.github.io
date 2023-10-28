@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet" />
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+        <title>SI Calculator app</title>
+
+        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+        <style>
+            .attribution {
+                font-size: 11px;
+                text-align: center;
+            }
+            .attribution a {
+                color: hsl(228, 45%, 44%);
+            }
+        </style>
+    </head>
+    <body class="theme1">
+        <main>
+            <header>
+                <h1>SI Calculator</h1>
+                <div class="themes">
+                    <p>theme</p>
+                    <div class="container">
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                        <div class="switcher" onclick="switchTheme()">
+                            <div class="red-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <section class="result">
+                <h1></h1>
+            </section>
+            <section class="buttons">
+                <table>
+                    <tr>
+                        <td onclick="addChar('7')"><button>7</button></td>
+                        <td onclick="addChar('8')"><button>8</button></td>
+                        <td onclick="addChar('9')"><button>9</button></td>
+                        <td onclick="del()"><button class="del">DEL</button></td>
+                    </tr>
+                    <tr>
+                        <td onclick="addChar('4')"><button>4</button></td>
+                        <td onclick="addChar('5')"><button>5</button></td>
+                        <td onclick="addChar('6')"><button>6</button></td>
+                        <td onclick="addChar('+')"><button>+</button></td>
+                    </tr>
+                    <tr>
+                        <td onclick="addChar('1')"><button>1</button></td>
+                        <td onclick="addChar('2')"><button>2</button></td>
+                        <td onclick="addChar('3')"><button>3</button></td>
+                        <td onclick="addChar('-')"><button>-</button></td>
+                    </tr>
+                    <tr>
+                        <td onclick="addChar('.')"><button>.</button></td>
+                        <td onclick="addChar('0')"><button>0</button></td>
+                        <td onclick="addChar('/')"><button>/</button></td>
+                        <td onclick="addChar('x')"><button>x</button></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" onclick="reset()"><button class="reset">RESET</button></td>
+                        <td colspan="2" onclick="compute()"><button class="compute">=</button></td>
+                    </tr>
+                </table>
+            </section>
+        </main>
+    </body>
+    <script>
+        let theme = 1;
+        let trigger = false;
+        function switchTheme() {
+            theme = (theme + 1) % 4;
+            if (theme == 0) {
+                theme = 1;
+            }
+
+            document.body.classList.remove("theme1");
+            document.body.classList.remove("theme2");
+            document.body.classList.remove("theme3");
+            document.body.classList.add("theme" + theme);
+        }
+
+        function compute() {
+          try {
+            let result = eval(document.querySelector(".result h1").textContent.replace(",", "").replace("x", "*").replace("*10^", "e"));
+            if (result == undefined) {
+                document.querySelector(".result h1").textContent = "le fab a planté";
+                return;
+            }
+            result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            let num = Number(result);
+            const numInSciNot = {};
+            [numInSciNot.coefficient, numInSciNot.exponent] = num
+                .toExponential()
+                .split("e")
+                .map((item) => Number(item));
+            if (numInSciNot.exponent > 0) {
+                document.querySelector(".result h1").textContent =
+                    String(Math.floor(numInSciNot.coefficient)) + "x10^" + String(numInSciNot.exponent);
+            } else if (numInSciNot.exponent == 0) {
+              return 
+            } else {
+                document.querySelector(".result h1").textContent ="0." + "0".repeat((numInSciNot.exponent*-1 - 1)) +  String(Math.floor(numInSciNot.coefficient));
+            }
+
+          } catch (e) {
+            console.log(e)
+            document.querySelector(".result h1").textContent = "le fab a planté";
+          }
+            // document.querySelector(".result h1").textContent = result;
+        }
+
+        function reset() {
+            document.querySelector(".result h1").textContent = " ";
+        }
+
+        function addChar(char) {
+            let content = document.querySelector(".result h1").textContent;
+            if (content == " ") {
+                content = "";
+            }
+            document.querySelector(".result h1").textContent = content + char;
+        }
+
+        function del() {
+            let content = document.querySelector(".result h1").textContent;
+            if (content == " ") {
+                return;
+            }
+            if (content.length == 1) {
+                reset();
+                return;
+            }
+            document.querySelector(".result h1").textContent = content.slice(0, content.length - 1);
+        }
+    </script>
+</html>
